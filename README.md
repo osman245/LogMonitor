@@ -1,0 +1,1 @@
+Create a log of the current status of a spaceship. If theirs issues in the spaceship where going to input it to a database. Once the issues reach a certain threshold we are going.
