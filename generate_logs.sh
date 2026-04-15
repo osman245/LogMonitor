@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Path to the log file where log entries will be written, giving us the messages coming from the spaceship
-LOGFILE="/home/admin/logs/spaceship.log"
+LOGFILE="spaceship.txt"
 
 # Infinite loop to continuously generate logs
 while true; do
