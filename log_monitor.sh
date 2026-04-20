@@ -1,15 +1,15 @@
 #!/bin/bash
 
 # Information to sign into local database
-LOG_FILE="spaceship.txt" #
+LOG_FILE="./spaceship.txt" #
 DB_NAME="log_monitor"
 DB_USER="postgres"
 DB_HOST="localhost"
 DB_PORT="5432"
 
  # First we need to make sure the file exists..
-if [[ ! -f "$LOGFILE" ]]; then
-    log "Log file $LOGFILE not found. Exiting."
+if [ ! -f "$LOG_FILE" ]; then
+    log "Log file $LOG_FILE not found. Exiting."
     exit 1
 fi
  
@@ -26,10 +26,9 @@ while IFS= read -r NEW_LINES; do # While new lines are generated do
         SQL="INSERT INTO log_entries (log_time, level, message) 
              VALUES ('$TS', '$LEVEL', '$MESSAGE_ESCAPED');"
 
-        psql -h "$DB_HOST" -p "$DB_PORT" -U "$DB_USER" -d "$DB_NAME" \
-             -c "$SQL" >> "$SCRIPT_LOG" 2>&1 ## Sign into psql and do the $SQL command.
+        /usr/bin/psql -h "$DB_HOST" -p "$DB_PORT" -U "$DB_USER" -d "$DB_NAME" \
+             -c "$SQL" ## Sign into psql and do the $SQL command.
 
     fi
 done < <(tail -F "$LOG_FILE")
 
- 

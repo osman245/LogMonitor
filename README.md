@@ -1,1 +1,1 @@
-Create a log of the current status of a spaceship. If theirs issues in the spaceship where going to input it to a database. Once the issues reach a certain threshold we are going.
+We created a Log monitoring application that detects errors in a spaceship. Stores those errors in a database, once theirs a certain amount of issues in that database(5), an email is going to be sent to me.
